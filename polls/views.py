@@ -23,7 +23,8 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
-    queryset = Question.objects.filter(pub_date__lte=datetime.datetime.now())
+    queryset = Question.objects.filter(pub_date__lte=timezone.now())
+    #queryset = Question.objects.filter(pub_date__lte=datetime.datetime.now())
 
 class ResultsView(generic.DetailView):
     model = Question
